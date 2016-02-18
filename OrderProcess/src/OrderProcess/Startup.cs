@@ -17,8 +17,9 @@ namespace OrderProcess
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
-            var ConnString = @"Data Source = (localdb)\mssqllocaldb; Initial Catalog = OrderProcess; Integrated Security = True; Pooling = False";
+            services.AddMvc();
+            services.AddScoped<IOrderProcessRepository, OrderProcessRepository>();
+            var ConnString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=OrderProcessDB;Integrated Security=True;Pooling=False;";
 
             services
                 .AddEntityFramework()
@@ -27,8 +28,7 @@ namespace OrderProcess
                 options.UseSqlServer(ConnString));
 
 
-            services.AddMvc();
-            services.AddTransient<IOrderRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
