@@ -18,7 +18,7 @@ namespace OrderProcess
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var ConnString = @"Data Source = (localdb)\mssqllocaldb; Initial Catalog = OrderProcess; Integrated Security = True; Pooling = False";
+            var ConnString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=OrderProcessDB;Integrated Security=True;Pooling=False";
 
             services
                 .AddEntityFramework()
