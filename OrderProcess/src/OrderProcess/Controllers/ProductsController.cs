@@ -9,18 +9,18 @@ using OrderProcess.Models;
 
 namespace OrderProcess.Controllers
 {
-    public class OrderController : Controller
+    public class ProductsController : Controller
     {
-        IOrderReposetory _reposetory;
+        private IOrderProcessRepository _repository;
 
-        public OrderController( IOrderReposetory reposetory)
+        public ProductsController(IOrderProcessRepository repository)
         {
-            _reposetory = reposetory;
+            _repository = repository;
         }
-
         public IActionResult Index()
         {
-            return View(_reposetory.GetAll());
+            var products = _repository.GetAllProduct();
+            return View(products);
         }
     }
 }
