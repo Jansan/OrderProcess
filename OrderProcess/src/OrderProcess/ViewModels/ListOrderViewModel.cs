@@ -15,5 +15,7 @@ namespace OrderProcess.ViewModels
         [Display(Name = "Pris")]
         public int Price { get; set; }
 
+        public string Details { get; set; }
+
     }
 }
