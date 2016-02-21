@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OrderProcess.ViewModels;
+using System.Collections.Generic;
 
 namespace OrderProcess.Models
 {
@@ -6,6 +7,9 @@ namespace OrderProcess.Models
     {
         IEnumerable<Product> GetAllProduct();
         Product GetById(int id);
+        List<DisplayProductsViewModel> ListProducts();
+        List<SelectedDisplayProductsViewModel> SelectedProducts(DisplayProductsViewModel dvm);
+       // List<SelectedDisplayProductsViewModel> SelectedListProducts(DisplayProductsViewModel vm);
         void addProducts();
     }
 }

@@ -1,0 +1,10 @@
+﻿@model List<DisplayProductsViewModel>
+<h3>High Speed Cars</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+       <li>@item.Name</li>
+       <li>@item.Price</li>
+
+    }
+</ul>

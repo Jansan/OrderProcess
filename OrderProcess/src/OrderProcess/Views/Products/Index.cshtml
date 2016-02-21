@@ -1,12 +1,35 @@
-﻿@model IEnumerable<Product>
+﻿@model List<DisplayProductsViewModel>
+
 
 <h2>Products</h2>
-<ul>
+<table>
     @foreach (var item in Model)
     {
-        <li>@item.Name</li>
-        <li>@item.Price</li>
-
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            @*<td><a asp-controller="Products" asp-action="Add" asp-route-id ="@item.Id">ADD</a></td>*@
+            
+            <td><input type="checkbox" name="checkBox" asp-for="@item.Selected" value="@item.Id"></td>
+        </tr>
     }
-</ul>
+    <tr><td>
+<form asp-controller="Products" asp-action="Add">
+    <input type="submit" value="Add" />
+</form>
+  
+</td></tr>
+
+</table>
+
+
+<div>
+    
+
+        @Html.Partial("SelectedProducts",Model)
+   
+    
+</div>
+
+
 <h2>Footer</h2>
